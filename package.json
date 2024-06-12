@@ -10,7 +10,7 @@
     "categories": [
         "Other"
     ],
-    "icon": "media/harumazefoto.png",
+    "icon": "media/harumazefoto.jpg",
     "activationEvents": [
         "onCommand:haru-maze-cat.showCat"
     ],
@@ -53,6 +53,6 @@
     "files": [
         "dist/**/*",
         "media/harumaze.mp4",
-        "media/harumazefoto.png"
+        "media/harumazefoto.jpg"
     ]
 }
