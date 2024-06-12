@@ -3,7 +3,7 @@
     "displayName": "Haru and Maze Cat Extension",
     "publisher": "LiporaceM",
     "description": "A Visual Studio Code extension that adds a cute animated video of Haru and Maze to relieve stress from the gruesome coding.",
-    "version": "0.0.2",
+    "version": "1.0.0",
     "engines": {
         "vscode": "^1.56.0"
     },
