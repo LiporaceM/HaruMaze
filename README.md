@@ -1,4 +1,6 @@
 # Haru e Maze Extensão
+## https://marketplace.visualstudio.com/items?itemName=LiporaceM.haru-maze-cat
+
 ## Extensão Rodando
 https://github.com/LiporaceM/HaruMaze/assets/108703224/cc34be9c-d07f-4a85-a29d-e08215a9228a
 
