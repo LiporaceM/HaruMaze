@@ -2,7 +2,8 @@
 ## https://marketplace.visualstudio.com/items?itemName=LiporaceM.haru-maze-cat
 
 ## Extensão Rodando
-https://github.com/LiporaceM/HaruMaze/assets/108703224/cc34be9c-d07f-4a85-a29d-e08215a9228a
+
+https://github.com/LiporaceM/HaruMaze/assets/108703224/27776957-d5b1-4d2f-b61c-4159fe118cb1
 
 ## Descrição
 
@@ -17,3 +18,5 @@ Esta extensão do Visual Studio Code adiciona um vídeo animado dos gatos Haru e
 
 1. Abra a Paleta de Comandos com `Ctrl+Shift+P`.
 2. Digite e selecione `Show Haru and Maze`.
+
+### Atualmente na versao 1.0.0
