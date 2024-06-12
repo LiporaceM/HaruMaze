@@ -1,0 +1,54 @@
+{
+    "name": "haru-maze-cat",
+    "displayName": "Haru and Maze Cat Extension",
+    "publisher": "LiporaceM",
+    "description": "A Visual Studio Code extension that adds a cute animated video of Haru and Maze drinking water to relieve stress from the gruesome coding,also dont forget to drink water!",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.56.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "icon": "media/harumazefoto.png",
+    "activationEvents": [
+        "onCommand:haru-maze-cat.showCat"
+    ],
+    "main": "./dist/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "haru-maze-cat.showCat",
+                "title": "Show Haru and Maze"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "webpack",
+        "compile": "webpack",
+        "watch": "webpack --watch",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.56.0",
+        "@types/glob": "^8.1.0",
+        "@types/mocha": "^10.0.6",
+        "@types/node": "^20.14.2",
+        "eslint": "^9.4.0",
+        "glob": "^10.4.1",
+        "mocha": "^10.4.0",
+        "typescript": "^5.4.5",
+        "vscode-test": "^1.6.1",
+        "webpack": "^5.92.0",
+        "webpack-cli": "^5.1.4",
+        "ts-loader": "^9.5.1"
+    },
+    "dependencies": {},
+    "files": [
+        "dist/**/*",
+        "media/harumaze.mp4",
+        "media/harumazefoto.png"
+    ]
+}
