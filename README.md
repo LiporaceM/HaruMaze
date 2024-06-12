@@ -19,4 +19,4 @@ Esta extensão do Visual Studio Code adiciona um vídeo animado dos gatos Haru e
 1. Abra a Paleta de Comandos com `Ctrl+Shift+P`.
 2. Digite e selecione `Show Haru and Maze`.
 
-### Atualmente na versao 1.0.0
+### Atualmente na versao 1.0.2
