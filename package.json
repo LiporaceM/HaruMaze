@@ -2,7 +2,7 @@
     "name": "haru-maze-cat",
     "displayName": "Haru and Maze Cat Extension",
     "publisher": "LiporaceM",
-    "description": "A Visual Studio Code extension that adds a cute animated video of Haru and Maze drinking water to relieve stress from the gruesome coding,also dont forget to drink water!",
+    "description": "A Visual Studio Code extension that adds a cute animated video of Haru and Maze to relieve stress from the gruesome coding.",
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.56.0"
@@ -15,6 +15,10 @@
         "onCommand:haru-maze-cat.showCat"
     ],
     "main": "./dist/extension.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/LiporaceM/HaruMaze.git"
+    },
     "contributes": {
         "commands": [
             {
