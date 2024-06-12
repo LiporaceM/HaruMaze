@@ -3,11 +3,11 @@ import * as path from 'path';
 
 export function activate(context: vscode.ExtensionContext) {
     let disposable = vscode.commands.registerCommand('haru-maze-cat.showCat', () => {
-
+        // Create and show a new webview
         const panel = vscode.window.createWebviewPanel(
             'haruMazeCat',
             'Haru and Maze',
-            vscode.ViewColumn.Beside,
+            vscode.ViewColumn.Beside, // Open beside the current editor
             {
                 enableScripts: true,
                 retainContextWhenHidden: true,
@@ -19,18 +19,6 @@ export function activate(context: vscode.ExtensionContext) {
         const videoSrc = panel.webview.asWebviewUri(videoPath);
 
         panel.webview.html = getWebviewContent(videoSrc);
-
-      
-        panel.webview.onDidReceiveMessage(message => {
-            switch (message.command) {
-                case 'resize':
-                    
-                    panel.reveal(vscode.ViewColumn.Two, true);
-                    break;
-            }
-        });
-
-        panel.webview.postMessage({ command: 'resize' });
     });
 
     context.subscriptions.push(disposable);
@@ -51,8 +39,9 @@ function getWebviewContent(videoSrc: vscode.Uri) {
                     margin: 0;
                     padding: 0;
                     overflow: hidden;
+                    background-color: transparent;
                 }
-                video {
+                .video-container {
                     width: 150px;
                     height: auto;
                     position: fixed;
@@ -61,20 +50,45 @@ function getWebviewContent(videoSrc: vscode.Uri) {
                     z-index: 1000;
                     border: 2px solid black;
                     border-radius: 8px;
+                    cursor: move;
+                }
+                video {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 8px;
                 }
             </style>
-            <script>
-                window.addEventListener('message', event => {
-                    const message = event.data;
-                    if (message.command === 'resize') {
-                        // Resize the window to small dimensions
-                        window.resizeTo(200, 200);
-                    }
-                });
-            </script>
         </head>
         <body>
-            <video src="${videoSrc}" autoplay loop muted></video>
+            <div class="video-container" id="videoContainer">
+                <video src="${videoSrc}" autoplay loop muted></video>
+            </div>
+            <script>
+                const videoContainer = document.getElementById('videoContainer');
+
+                videoContainer.addEventListener('mousedown', onMouseDown);
+
+                function onMouseDown(event) {
+                    event.preventDefault();
+                    document.addEventListener('mousemove', onMouseMove);
+                    document.addEventListener('mouseup', onMouseUp);
+
+                    let shiftX = event.clientX - videoContainer.getBoundingClientRect().left;
+                    let shiftY = event.clientY - videoContainer.getBoundingClientRect().top;
+
+                    function onMouseMove(event) {
+                        videoContainer.style.left = event.pageX - shiftX + 'px';
+                        videoContainer.style.top = event.pageY - shiftY + 'px';
+                    }
+
+                    function onMouseUp() {
+                        document.removeEventListener('mousemove', onMouseMove);
+                        document.removeEventListener('mouseup', onMouseUp);
+                    }
+                }
+
+                videoContainer.ondragstart = () => false;
+            </script>
         </body>
         </html>
     `;
